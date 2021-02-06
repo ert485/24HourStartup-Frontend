@@ -1,5 +1,7 @@
 <mat-card class="tile">
-  <p>{{ id }}</p>
-
+  <a [routerLink]="'document/' + document">
+    {{ document }}
+  </a>
+  <br />
   <mat-icon>article</mat-icon>
 </mat-card>

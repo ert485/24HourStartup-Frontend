@@ -1,5 +1,5 @@
 <div class="documents">
-  <div *ngFor="let document of documents" class="grid-item">
-    <app-document-tile [id]="document"></app-document-tile>
+  <div *ngFor="let document of documents$ | async" class="grid-item">
+    <app-document-tile [document]="document"></app-document-tile>
   </div>
 </div>

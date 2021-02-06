@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./document-tile.component.scss'],
 })
 export class DocumentTileComponent implements OnInit {
-  @Input() id: string;
+  @Input() document: any;
   constructor() {}
 
   ngOnInit(): void {}

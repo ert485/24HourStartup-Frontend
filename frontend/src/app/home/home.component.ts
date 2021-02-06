@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-home',
@@ -6,19 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor(private readonly backend: BackendService) {}
 
-  documents: string[] = [];
+  documents$: Observable<any>;
 
   ngOnInit(): void {
-    this.documents = [
-      'document1',
-      'document2',
-      'document3',
-      'document4',
-      'document5',
-      'document6',
-      'document7',
-    ];
+    this.documents$ = this.backend
+      .listDocuments()
+      .pipe(
+        catchError(() => [
+          [
+            'document1',
+            'document2',
+            'document3',
+            'document4',
+            'document5',
+            'document6',
+            'document7',
+          ],
+        ])
+      );
   }
 }
