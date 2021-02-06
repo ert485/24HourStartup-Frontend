@@ -32,6 +32,7 @@ export class DocumentComponent implements OnInit {
                 {
                   default: true,
                   id: 'beer',
+                  title: 'Beer on project completion',
                   text:
                     'The client is required to pay the contractor in the form of a 24 case of beer, ' +
                     'due at the completion of the project (as defined by blah blah blah)',
@@ -48,10 +49,11 @@ export class DocumentComponent implements OnInit {
                 {
                   default: true,
                   id: 'beerware',
+                  title: 'Beerware',
                   text:
                     'As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.',
                   plainEnglish:
-                    'Also known as Beerware. Use this software however you like, but kindly return the favor with beer.',
+                    'Use this software however you like, but kindly return the favor with beer.',
                 },
               ],
             },
