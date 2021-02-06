@@ -1,0 +1,45 @@
+@import "~@angular/material/theming";
+@include mat-core();
+
+$md-agreemint: (
+  50: #e8fbf4,
+  100: #c6f5e3,
+  200: #a1efd0,
+  300: #7be9bd,
+  400: #5ee4ae,
+  500: #42dfa0,
+  600: #3cdb98,
+  700: #33d78e,
+  800: #2bd284,
+  900: #1dca73,
+  A100: #ffffff,
+  A200: #ceffe5,
+  A400: #9bffc9,
+  A700: #81ffbc,
+  contrast: (
+    50: #ffffff,
+    100: #ffffff,
+    200: #ffffff,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$agreemint-primary: mat-palette($md-agreemint);
+$agreemint-accent: mat-palette($mat-pink, 500, 900, A100);
+$agreemint-warn: mat-palette($mat-deep-orange);
+$agreemint-theme: mat-light-theme(
+  $agreemint-primary,
+  $agreemint-accent,
+  $agreemint-warn
+);
+@include angular-material-theme($agreemint-theme);
