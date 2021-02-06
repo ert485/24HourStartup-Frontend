@@ -1,18 +1,35 @@
-<ng-container *ngIf="document$ | async as document">
-  <div class="section" *ngFor="let section of document.sections">
-    <mat-card class="main-doc">
-      <strong>
-        {{ section.name }}
-      </strong>
-      <br />
-      {{ section.possibleTerms[0].text }}
-    </mat-card>
-    <mat-card class="side">
-      <strong> {{ section.name }}</strong
-      >:
-      {{ section.possibleTerms[0].title }}
-      <br />
-      {{ section.possibleTerms[0].plainEnglish }}
-    </mat-card>
+<div class="container">
+  <div class="main-doc" *ngIf="document$ | async as document">
+    <div class="section" *ngFor="let section of document.sections">
+      <mat-card class="main-doc">
+        <strong> {{ section.name }} </strong>
+        <br /><br />
+        {{ section.text }}
+      </mat-card>
+    </div>
   </div>
-</ng-container>
+  <ng-container *ngIf="document$ | async as document">
+    <div class="side">
+      <mat-card>
+        <h3>{{ document.sections[0].name }}</h3>
+        {{ document.sections[0].possibleTerms[0].title }}
+        <br /><br />
+        <h4>Plain Language:</h4>
+        {{ document.sections[0].possibleTerms[0].plainEnglish }}
+        <h4>Professional Language:</h4>
+        {{ document.sections[0].possibleTerms[0].text }}
+        <br /><br />
+      </mat-card>
+      <mat-card>
+        <h3>Recommended Alternatives</h3>
+        <ul>
+          <ng-container *ngFor="let term of document.sections[0].possibleTerms">
+            <button mat-button *ngIf="!term.default">
+              {{ term.title }}
+            </button>
+          </ng-container>
+        </ul>
+      </mat-card>
+    </div>
+  </ng-container>
+</div>

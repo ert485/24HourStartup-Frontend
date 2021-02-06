@@ -7,6 +7,12 @@
   margin: auto;
 }
 .side {
-  width: 400px;
+  width: 500px;
   margin: auto;
+}
+.container {
+  display: flex;
+}
+mat-card {
+  margin: 12px;
 }

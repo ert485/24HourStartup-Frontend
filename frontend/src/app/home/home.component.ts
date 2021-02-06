@@ -19,13 +19,13 @@ export class HomeComponent implements OnInit {
       .pipe(
         catchError(() => [
           [
-            'document1',
-            'document2',
-            'document3',
-            'document4',
-            'document5',
-            'document6',
-            'document7',
+            'contract1',
+            'contract2',
+            'contract3',
+            'contract4',
+            'contract5',
+            'contract6',
+            'contract7',
           ],
         ])
       );

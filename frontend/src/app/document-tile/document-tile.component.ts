@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-document-tile',
@@ -7,7 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DocumentTileComponent implements OnInit {
   @Input() document: any;
-  constructor() {}
+  constructor(private readonly router: Router) {}
 
   ngOnInit(): void {}
+  openDoc() {
+    this.router.navigate(['document/' + this.document]);
+  }
 }

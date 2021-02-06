@@ -25,8 +25,10 @@ export class DocumentComponent implements OnInit {
         {
           sections: [
             {
-              name: 'Payment Terms',
+              name: 'Payment Terms Section',
               id: 'payment',
+              text:
+                'How/When should payments be made for the services in the project?',
               selectedTermId: 'beer',
               possibleTerms: [
                 {
@@ -39,11 +41,18 @@ export class DocumentComponent implements OnInit {
                   plainEnglish:
                     'Once the project is done, the client will give the contractor 24 beers.',
                 },
+                {
+                  default: false,
+                  id: 'completion',
+                  title: 'Cash payment on completion',
+                },
               ],
             },
             {
-              name: 'Intellectual Property',
+              name: 'Intellectual Property Section',
               id: 'ip',
+              text:
+                'Who can copy/distribute/own any works created in the project?',
               selectedTermId: 'beerware',
               possibleTerms: [
                 {
@@ -54,6 +63,11 @@ export class DocumentComponent implements OnInit {
                     'As long as you retain this notice you can do whatever you want with this stuff. If we meet some day, and you think this stuff is worth it, you can buy me a beer in return.',
                   plainEnglish:
                     'Use this software however you like, but kindly return the favor with beer.',
+                },
+                {
+                  default: false,
+                  id: 'public-domain',
+                  title: 'Public Domain',
                 },
               ],
             },
