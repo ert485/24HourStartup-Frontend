@@ -1,0 +1,18 @@
+<ng-container *ngIf="document$ | async as document">
+  <div class="section" *ngFor="let section of document.sections">
+    <mat-card class="main-doc">
+      <strong>
+        {{ section.name }}
+      </strong>
+      <br />
+      {{ section.possibleTerms[0].text }}
+    </mat-card>
+    <mat-card class="side">
+      <strong> {{ section.name }}</strong
+      >:
+      {{ section.possibleTerms[0].title }}
+      <br />
+      {{ section.possibleTerms[0].plainEnglish }}
+    </mat-card>
+  </div>
+</ng-container>
