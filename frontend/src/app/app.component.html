@@ -48,9 +48,16 @@
     color: white;
     font-weight: 600;
   }
+  .outlet-content {
+    margin-top: 60px;
+  }
 
   .toolbar img {
     margin: 0 16px;
+  }
+
+  .fill {
+    height: 60px;
   }
 
   svg#clouds {
@@ -97,6 +104,10 @@
       fill="#eee"
     />
   </svg>
+  <div class="fill"></div>
+  <div class="outlet-content">
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
@@ -106,5 +117,3 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<router-outlet></router-outlet>
