@@ -44,10 +44,28 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
+    background-color: #42dfa0;
     color: white;
     font-weight: 600;
   }
+  .nav-item {
+    margin: 8px;
+  }
+  .nav-item:link {
+    text-decoration: inherit;
+    color: inherit;
+  }
+  .nav-item:visited {
+    text-decoration: inherit;
+    color: inherit;
+  }
+  .nav-start {
+    width: 10%;
+  }
+  .nav-end {
+    width: 10%;
+  }
+
   .outlet-content {
     margin-top: 60px;
   }
@@ -78,13 +96,18 @@
 
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
+  <div class="nav-start"></div>
   <!-- <img
     width="40"
     alt="Angular Logo"
     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
   /> -->
-  <a href="">Welcome</a>
+  <a class="nav-item" href="">Home</a>
   <div class="spacer"></div>
+  <div><a href="" class="nav-item">Dashboard</a></div>
+  <div><a href="" class="nav-item">Profile</a></div>
+  <div><a href="" class="nav-item">Customers</a></div>
+  <div class="nav-end"></div>
 </div>
 
 <div class="content" role="main">
