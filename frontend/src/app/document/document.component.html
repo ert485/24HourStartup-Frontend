@@ -11,19 +11,24 @@
   <ng-container *ngIf="document$ | async as document">
     <div class="side">
       <mat-card>
-        <h3>{{ document.sections[0].name }}</h3>
-        {{ document.sections[0].possibleTerms[0].title }}
-        <br /><br />
+        <h3>{{ restOfSection.sectionTitle }}</h3>
+        {{ restOfSection.title }} <br /><br />
         <h4>Plain Language:</h4>
-        {{ document.sections[0].possibleTerms[0].plainEnglish }}
+        {{
+          (backendSection$ | async)?.english_content ||
+            document.sections[1]?.possibleTerms[0].plainEnglish
+        }}
         <h4>Professional Language:</h4>
-        {{ document.sections[0].possibleTerms[0].text }}
+        {{
+          (backendSection$ | async)?.legal_content ||
+            document.sections[1].possibleTerms[0].text
+        }}
         <br /><br />
       </mat-card>
       <mat-card>
         <h3>Recommended Alternatives</h3>
         <ul>
-          <ng-container *ngFor="let term of document.sections[0].possibleTerms">
+          <ng-container *ngFor="let term of document.sections[1].possibleTerms">
             <button mat-button *ngIf="!term.default">
               {{ term.title }}
             </button>

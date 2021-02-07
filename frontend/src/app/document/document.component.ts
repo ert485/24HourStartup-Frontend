@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
-import { BackendService } from '../backend.service';
+import { catchError, map, shareReplay, switchMap } from 'rxjs/operators';
+import { BackendService, Section } from '../backend.service';
 
 @Component({
   selector: 'app-document',
@@ -14,16 +14,30 @@ export class DocumentComponent implements OnInit {
     private readonly backend: BackendService,
     private readonly route: ActivatedRoute
   ) {}
+  backendSection$: Observable<Section>;
   document$: Observable<any>;
+  restOfSection = {
+    sectionTitle: 'Services Section',
+    title: 'Hourly rate, with changes',
+  };
   ngOnInit(): void {
     const id$ = this.route.paramMap.pipe(
       map((params) => params.get('documentId'))
     );
+    this.backendSection$ = this.backend
+      .getSection('2')
+      .pipe(map((v) => v[0]))
+      .pipe(shareReplay(1));
     this.document$ = id$.pipe(
       switchMap((id) => this.backend.getDocument(id)),
       catchError(() => [
         {
           sections: [
+            {
+              name: 'Services Section',
+              id: 'services',
+              text: 'How/When should services be rendered for the project?',
+            },
             {
               name: 'Payment Terms Section',
               id: 'payment',
